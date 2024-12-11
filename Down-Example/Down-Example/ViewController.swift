@@ -22,7 +22,7 @@ final class ViewController: UIViewController {
 private extension ViewController {
     
     func renderDownInWebView() {
-        guard let readMeURL = Bundle.main.url(forResource: nil, withExtension: "md"),
+        guard let readMeURL = Bundle.main.url(forResource: "sample3", withExtension: "md"),
               let readMeContents = try? String(contentsOf: readMeURL)
             else {
                 showError(message: "Could not load readme contents.")
