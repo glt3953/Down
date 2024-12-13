@@ -27,13 +27,8 @@ class CustomTableViewCell: UITableViewCell {
     }
 
     private func setupViews() {
-        self.backgroundColor = .clear
-        
         // Configure container view
         containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.layer.cornerRadius = 10
-//        containerView.layer.masksToBounds = true
-        containerView.backgroundColor = .white
         
         // Configure horizontal separator view
         horizontalSeparatorView.backgroundColor = .lightGray
@@ -63,8 +58,8 @@ class CustomTableViewCell: UITableViewCell {
 
         // Set constraints for container view
         NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])

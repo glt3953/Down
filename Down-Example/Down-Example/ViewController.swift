@@ -20,14 +20,24 @@ final class ViewController: UIViewController {
     }
     
     func showTableVC() {
+        var frame = view.bounds
+        frame.origin.x += 20
+        frame.origin.y += 44 + 10
+        frame.size.width -= 40
+        frame.size.height -= 44 + 20 + 32
+        let containerView = UIView(frame: frame)
+        containerView.backgroundColor = .lightGray
+        containerView.layer.cornerRadius = 10
+        containerView.layer.masksToBounds = true
+        view.addSubview(containerView)
+        
         let tableVC = TableViewController()
         addChild(tableVC)
-        view.addSubview(tableVC.view)
-        var frame = view.bounds
-        frame.origin.x += 10
-        frame.origin.y += 44 + 10
+        containerView.addSubview(tableVC.view)
+        frame.origin.x = 10
+        frame.origin.y = 30
         frame.size.width -= 20
-        frame.size.height -= 44 + 20
+        frame.size.height = 260
         tableVC.view.frame = frame
         tableVC.view.layer.cornerRadius = 10
         tableVC.view.layer.masksToBounds = true

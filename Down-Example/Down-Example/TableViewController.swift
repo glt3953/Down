@@ -23,7 +23,7 @@ class TableViewController: UITableViewController {
         self.title = "研究结果"
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
         tableView.separatorStyle = .none // Remove default separators
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = .white
         tableView.contentInsetAdjustmentBehavior = .never // Adjust insets to avoid extra padding
     }
 
