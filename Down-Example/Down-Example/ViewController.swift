@@ -9,7 +9,16 @@
 import UIKit
 import Down
 
-final class ViewController: UIViewController {
+final class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    let tableView = UITableView()
+    let data = [
+        ("人口", "患有LPR和患有咽喉部疾病的对照组"),
+        ("样本量", "162"),
+        ("方法", "Systematic Review"),
+        ("结果", "上皮化、后息肉复发、返流发现评分、返流症状指数"),
+        ("结论", "PPI治疗改善了LPR患者的手术结果并减少复发")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,31 +28,111 @@ final class ViewController: UIViewController {
         showTableVC()
     }
     
+    func calculateTableViewHeight(cellWidth: CGFloat) -> CGFloat {
+        var tableViewHeight : CGFloat = 0
+        
+        for (key, value) in data {
+            tableViewHeight += CustomTableViewCell.heightForCell(title: key, value: value, width: cellWidth)
+        }
+        
+        return tableViewHeight
+    }
+    
     func showTableVC() {
-        var frame = view.bounds
-        frame.origin.x += 20
-        frame.origin.y += 44 + 10
-        frame.size.width -= 40
-        frame.size.height -= 44 + 20 + 32
-        let containerView = UIView(frame: frame)
+        let containerView = UIView()
         containerView.backgroundColor = .lightGray
         containerView.layer.cornerRadius = 10
         containerView.layer.masksToBounds = true
+        containerView.translatesAutoresizingMaskIntoConstraints = false //此处设置可及时获得 frame 真实值
         view.addSubview(containerView)
         
-        let tableVC = TableViewController()
-        addChild(tableVC)
-        containerView.addSubview(tableVC.view)
-        frame.origin.x = 10
-        frame.origin.y = 30
-        frame.size.width -= 20
-        frame.size.height = tableVC.calculateTableViewHeight(cellWidth: frame.size.width)
-        print("表格高度：\(frame.size.height)")
-        tableVC.view.frame = frame
-        tableVC.view.layer.cornerRadius = 10
-        tableVC.view.layer.masksToBounds = true
-        tableVC.didMove(toParent: self)
+        // Set containerView constraints
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 44 + 20),
+            containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(32) + 10),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
+        // Force the layout to update immediately
+        view.layoutIfNeeded()
+        
+        // Setup tableView
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
+        tableView.separatorStyle = .none // Remove default separators
+        tableView.backgroundColor = .white
+        tableView.layer.cornerRadius = 10
+        tableView.layer.masksToBounds = true
+        tableView.translatesAutoresizingMaskIntoConstraints = false //此处设置可及时获得 frame 真实值
+        containerView.addSubview(tableView)
+        
+        print("表格 containerView actual width: \(containerView.frame.width)")
+
+        let tableViewHeight = calculateTableViewHeight(cellWidth: containerView.frame.size.width)
+        print("表格高度：\(tableViewHeight)")
+        // Set tableView constraints
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 30),
+            tableView.heightAnchor.constraint(equalToConstant: tableViewHeight),
+            tableView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10),
+            tableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10)
+        ])
+        // Force the layout to update immediately
+        view.layoutIfNeeded()
+        
+//        var frame = view.bounds
+//        frame.origin.x += 20
+//        frame.origin.y += 44 + 10
+//        frame.size.width -= 40
+//        frame.size.height -= 44 + 20 + 32
+//        let containerView = UIView(frame: frame)
+//        containerView.backgroundColor = .lightGray
+//        containerView.layer.cornerRadius = 10
+//        containerView.layer.masksToBounds = true
+//        view.addSubview(containerView)
+//        
+//        let tableVC = TableViewController()
+//        addChild(tableVC)
+//        containerView.addSubview(tableVC.view)
+//        frame.origin.x = 10
+//        frame.origin.y = 30
+//        frame.size.width -= 20
+//        frame.size.height = tableVC.calculateTableViewHeight(cellWidth: frame.size.width)
+//        print("表格高度：\(frame.size.height)")
+//        tableVC.view.frame = frame
+//        tableVC.view.layer.cornerRadius = 10
+//        tableVC.view.layer.masksToBounds = true
+//        tableVC.didMove(toParent: self)
     }
+    
+    // UITableViewDataSource methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return data.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        let (title, value) = data[indexPath.row]
+        cell.titleLabel.text = title
+        cell.valueLabel.text = value
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+
+//    // UITableViewDelegate methods
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let (title, value) = data[indexPath.row]
+//        let cellWidth = tableView.bounds.width
+//        return CustomTableViewCell.heightForCell(title: title, value: value, width: cellWidth)
+//    }
     
     func showHTMLContent() {
 //        let gridHtml = """
