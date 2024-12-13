@@ -10,7 +10,6 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
 
-    let containerView = UIView()
     let horizontalSeparatorView = UIView()
     let titleLabel = UILabel()
     let valueLabel = UILabel()
@@ -27,9 +26,6 @@ class CustomTableViewCell: UITableViewCell {
     }
 
     private func setupViews() {
-        // Configure container view
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        
         // Configure horizontal separator view
         horizontalSeparatorView.backgroundColor = .lightGray
         horizontalSeparatorView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,41 +46,32 @@ class CustomTableViewCell: UITableViewCell {
         valueLabel.numberOfLines = 0
 
         // Add subviews
-        containerView.addSubview(horizontalSeparatorView)
-        containerView.addSubview(titleLabel)
-        containerView.addSubview(verticalSeparatorView)
-        containerView.addSubview(valueLabel)
-        contentView.addSubview(containerView)
-
-        // Set constraints for container view
-        NSLayoutConstraint.activate([
-            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            containerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
+        contentView.addSubview(horizontalSeparatorView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(verticalSeparatorView)
+        contentView.addSubview(valueLabel)
         
         // Set constraints
         NSLayoutConstraint.activate([
-            horizontalSeparatorView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            horizontalSeparatorView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            horizontalSeparatorView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            horizontalSeparatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            horizontalSeparatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            horizontalSeparatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             horizontalSeparatorView.heightAnchor.constraint(equalToConstant: 0.5),
             
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
-            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
-            titleLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
             titleLabel.widthAnchor.constraint(equalToConstant: 100), // Fixed width for the first column
             
             verticalSeparatorView.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 8),
-            verticalSeparatorView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            verticalSeparatorView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            verticalSeparatorView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            verticalSeparatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             verticalSeparatorView.widthAnchor.constraint(equalToConstant: 0.5),
 
             valueLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 16),
-            valueLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
-            valueLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
-            valueLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8)
+            valueLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+            valueLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            valueLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
 }
