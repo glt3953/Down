@@ -23,7 +23,8 @@ class TableViewController: UITableViewController {
         self.title = "研究结果"
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "customCell")
         tableView.separatorStyle = .none // Remove default separators
-        tableView.backgroundColor = .groupTableViewBackground
+        tableView.backgroundColor = .lightGray
+        tableView.contentInsetAdjustmentBehavior = .never // Adjust insets to avoid extra padding
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

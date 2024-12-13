@@ -25,10 +25,12 @@ final class ViewController: UIViewController {
         view.addSubview(tableVC.view)
         var frame = view.bounds
         frame.origin.x += 10
-        frame.origin.y += 10
+        frame.origin.y += 44 + 10
         frame.size.width -= 20
-        frame.size.height -= 20
+        frame.size.height -= 44 + 20
         tableVC.view.frame = frame
+        tableVC.view.layer.cornerRadius = 10
+        tableVC.view.layer.masksToBounds = true
         tableVC.didMove(toParent: self)
     }
     
