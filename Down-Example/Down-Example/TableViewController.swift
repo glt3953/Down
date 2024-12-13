@@ -9,7 +9,7 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-
+    
     let data = [
         ("人口", "患有LPR和患有咽喉部疾病的对照组"),
         ("样本量", "162"),
@@ -17,6 +17,16 @@ class TableViewController: UITableViewController {
         ("结果", "上皮化、后息肉复发、返流发现评分、返流症状指数"),
         ("结论", "PPI治疗改善了LPR患者的手术结果并减少复发")
     ]
+    
+    func calculateTableViewHeight(cellWidth: CGFloat) -> CGFloat {
+        var tableViewHeight : CGFloat = 0
+        
+        for (key, value) in data {
+            tableViewHeight += CustomTableViewCell.heightForCell(title: key, value: value, width: cellWidth)
+        }
+        
+        return tableViewHeight
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -37,7 +37,8 @@ final class ViewController: UIViewController {
         frame.origin.x = 10
         frame.origin.y = 30
         frame.size.width -= 20
-        frame.size.height = 260
+        frame.size.height = tableVC.calculateTableViewHeight(cellWidth: frame.size.width)
+        print("表格高度：\(frame.size.height)")
         tableVC.view.frame = frame
         tableVC.view.layer.cornerRadius = 10
         tableVC.view.layer.masksToBounds = true
