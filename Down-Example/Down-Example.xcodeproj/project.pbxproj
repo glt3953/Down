@@ -15,6 +15,7 @@
 		1466417F218D2A18009627F9 /* Down.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D49980B51FA560F8004EE42E /* Down.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14954EA521A7DCB9001933C4 /* README-sample.md in Resources */ = {isa = PBXBuildFile; fileRef = 14954EA421A7DCA3001933C4 /* README-sample.md */; };
 		14954EA621A7DCBA001933C4 /* README-sample.md in Resources */ = {isa = PBXBuildFile; fileRef = 14954EA421A7DCA3001933C4 /* README-sample.md */; };
+		5A6CCF0A2D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CCF092D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift */; };
 		5A6E02DC2D0BDD1400429734 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E02DB2D0BDD1400429734 /* TableViewController.swift */; };
 		5A6E02DF2D0BDE9C00429734 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E02DE2D0BDE9C00429734 /* CustomTableViewCell.swift */; };
 		5A7B6BFA2D09BA7C0047771C /* sample3.md in Resources */ = {isa = PBXBuildFile; fileRef = 5A7B6BF52D09BA7C0047771C /* sample3.md */; };
@@ -95,6 +96,7 @@
 		14090A542185411A00503C06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14090A5E2185443800503C06 /* macOS Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS Demo.entitlements"; sourceTree = "<group>"; };
 		14954EA421A7DCA3001933C4 /* README-sample.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README-sample.md"; sourceTree = "<group>"; };
+		5A6CCF092D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwitchPopupView.swift; sourceTree = "<group>"; };
 		5A6E02DB2D0BDD1400429734 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5A6E02DE2D0BDE9C00429734 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5A7B6BF52D09BA7C0047771C /* sample3.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = sample3.md; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				8A07D7DE1F085EC6004D7141 /* Info.plist */,
 				5A6E02DB2D0BDD1400429734 /* TableViewController.swift */,
 				5A6E02DE2D0BDE9C00429734 /* CustomTableViewCell.swift */,
+				5A6CCF092D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift */,
 			);
 			path = "Down-Example";
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A07D7D51F085EC6004D7141 /* ViewController.swift in Sources */,
+				5A6CCF0A2D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift in Sources */,
 				5A6E02DC2D0BDD1400429734 /* TableViewController.swift in Sources */,
 				5A6E02DF2D0BDE9C00429734 /* CustomTableViewCell.swift in Sources */,
 				8A07D7D31F085EC6004D7141 /* AppDelegate.swift in Sources */,

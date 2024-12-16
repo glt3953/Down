@@ -19,13 +19,38 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         ("结果", "上皮化、后息肉复发、返流发现评分、返流症状指数"),
         ("结论", "PPI治疗改善了LPR患者的手术结果并减少复发")
     ]
+    var homeSwitchPopupView: HomeSwitchPopupView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        renderDownInWebView()
 //        showHTMLContent()
-        showTableVC()
+        let popupViewButton = UIButton(frame: CGRect(x: 300, y: 44 + 20, width: 50, height: 30))
+        popupViewButton.backgroundColor = .lightGray
+        popupViewButton.setTitle("设置", for: .normal)
+        popupViewButton.layer.cornerRadius = 5
+        popupViewButton.layer.masksToBounds = true
+        view.addSubview(popupViewButton)
+        popupViewButton.addTarget(self, action: #selector(popupViewButtonClicked(_:)), for: .touchUpInside)
+        // Set popupViewButton constraints
+//        NSLayoutConstraint.activate([
+//            popupViewButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44 + 20),
+//            popupViewButton.heightAnchor.constraint(equalToConstant: 30),
+//            popupViewButton.widthAnchor.constraint(equalToConstant: 50),
+//            popupViewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+//        ])
+        
+        showTableGrid()
+    }
+    
+    @objc func popupViewButtonClicked(_ sender: UIButton) {
+        if (homeSwitchPopupView == nil) {
+            homeSwitchPopupView = HomeSwitchPopupView(frame: CGRect(x: 150, y: 120, width: 200, height: 100))
+            view.addSubview(homeSwitchPopupView)
+        }
+        
+        homeSwitchPopupView.isHidden = !homeSwitchPopupView.isHidden
     }
     
     func calculateTableViewHeight(cellWidth: CGFloat) -> CGFloat {
@@ -38,7 +63,7 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         return tableViewHeight
     }
     
-    func showTableVC() {
+    func showTableGrid() {
         let containerView = UIView()
         containerView.backgroundColor = .lightGray
         containerView.layer.cornerRadius = 10
@@ -48,7 +73,7 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         
         // Set containerView constraints
         NSLayoutConstraint.activate([
-            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 44 + 20),
+            containerView.topAnchor.constraint(equalTo: view.topAnchor, constant: 44 + 20 + 200),
             containerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -(32) + 10),
             containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
