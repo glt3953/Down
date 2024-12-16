@@ -59,9 +59,14 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         // Setup tableView
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.isScrollEnabled = false
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "CustomTableViewCell")
         tableView.separatorStyle = .none // Remove default separators
         tableView.backgroundColor = .white
+        // 添加边框
+        tableView.layer.borderWidth = 1
+        tableView.layer.borderColor = UIColor.darkGray.cgColor
+        // 添加圆角
         tableView.layer.cornerRadius = 10
         tableView.layer.masksToBounds = true
         tableView.translatesAutoresizingMaskIntoConstraints = false //此处设置可及时获得 frame 真实值
