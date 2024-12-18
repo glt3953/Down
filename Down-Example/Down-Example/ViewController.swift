@@ -197,28 +197,23 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
                 </head>
                 <body>
                 
-                <table>
-                    <tr>
-                        <th>人口</th>
-                        <td>患有LPR和患有咽喉部疾病的对照组</td>
-                    </tr>
-                    <tr>
-                        <th>样本量</th>
-                        <td>162</td>
-                    </tr>
-                    <tr>
-                        <th>方法</th>
-                        <td>Systematic Review</td>
-                    </tr>
-                    <tr>
-                        <th>结果</th>
-                        <td>上皮化、后息肉复发、返流发现评分、返流症状指数</td>
-                    </tr>
-                    <tr>
-                        <th>结论</th>
-                        <td>PPI治疗改善了LPR患者的手术结果并减少复发</td>
-                    </tr>
-                </table>
+                <span class="authors-list-item "><a class="full-name"
+                           href="/?term=Collado+MJB&amp;cauthor_id=39140297"
+                           ref="linksrc=author_name_link"
+                           data-ga-category="search"
+                           data-ga-action="author_link"
+                           data-ga-label="María José Bermejo Collado">María José Bermejo Collado</a><sup class="affiliation-links"><span class="author-sup-separator">&nbsp;</span><a class="affiliation-link" title="UCI, Hospital Universitario Reina Sofia, Cordoba, Spain." href="#full-view-affiliation-1" ref="linksrc=author_aff">
+                                1
+                              </a></sup><span class="comma">,&nbsp;</span></span>
+                
+                <span class="authors-list-item "><a class="full-name"
+                           href="/?term=Recio+MER&amp;cauthor_id=39140297"
+                           ref="linksrc=author_name_link"
+                           data-ga-category="search"
+                           data-ga-action="author_link"
+                           data-ga-label="Mª Esther Rincón Recio">Mª Esther Rincón Recio</a><sup class="affiliation-links"><span class="author-sup-separator">&nbsp;</span><a class="affiliation-link" title="UCI, Hospital Universitario Reina Sofia, Cordoba, Spain." href="#full-view-affiliation-1" ref="linksrc=author_aff">
+                                1
+                              </a></sup><span class="comma">,&nbsp;</span></span>
                 
                 <p>
                       
@@ -230,9 +225,9 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
                 """
         var frame = view.frame
         frame.origin.x += 10
-        frame.origin.y += 44 + 10
+        frame.origin.y += 150 + 10
         frame.size.width -= 20
-        frame.size.height -= 44 + 20 + 20
+        frame.size.height -= 150 + 20 + 20
         let gridTextView = UITextView(frame: frame)
         gridTextView.isEditable = false
         // 设置背景颜色
