@@ -24,8 +24,8 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        renderDownInWebView()
-//        showHTMLContent()
+        //        renderDownInWebView()
+        showHTMLContent()
         let popupViewButton = UIButton(frame: CGRect(x: 300, y: 44 + 20, width: 50, height: 30))
         popupViewButton.backgroundColor = .lightGray
         popupViewButton.setTitle("设置", for: .normal)
@@ -34,14 +34,14 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         view.addSubview(popupViewButton)
         popupViewButton.addTarget(self, action: #selector(popupViewButtonClicked(_:)), for: .touchUpInside)
         // Set popupViewButton constraints
-//        NSLayoutConstraint.activate([
-//            popupViewButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44 + 20),
-//            popupViewButton.heightAnchor.constraint(equalToConstant: 30),
-//            popupViewButton.widthAnchor.constraint(equalToConstant: 50),
-//            popupViewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-//        ])
+        //        NSLayoutConstraint.activate([
+        //            popupViewButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 44 + 20),
+        //            popupViewButton.heightAnchor.constraint(equalToConstant: 30),
+        //            popupViewButton.widthAnchor.constraint(equalToConstant: 50),
+        //            popupViewButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        //        ])
         
-        showTableGrid()
+//        showTableGrid()
     }
     
     @objc func popupViewButtonClicked(_ sender: UIButton) {
@@ -98,7 +98,7 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         containerView.addSubview(tableView)
         
         print("表格 containerView actual width: \(containerView.frame.width)")
-
+        
         let tableViewHeight = calculateTableViewHeight(cellWidth: containerView.frame.size.width)
         print("表格高度：\(tableViewHeight)")
         // Set tableView constraints
@@ -111,36 +111,36 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         // Force the layout to update immediately
         view.layoutIfNeeded()
         
-//        var frame = view.bounds
-//        frame.origin.x += 20
-//        frame.origin.y += 44 + 10
-//        frame.size.width -= 40
-//        frame.size.height -= 44 + 20 + 32
-//        let containerView = UIView(frame: frame)
-//        containerView.backgroundColor = .lightGray
-//        containerView.layer.cornerRadius = 10
-//        containerView.layer.masksToBounds = true
-//        view.addSubview(containerView)
-//        
-//        let tableVC = TableViewController()
-//        addChild(tableVC)
-//        containerView.addSubview(tableVC.view)
-//        frame.origin.x = 10
-//        frame.origin.y = 30
-//        frame.size.width -= 20
-//        frame.size.height = tableVC.calculateTableViewHeight(cellWidth: frame.size.width)
-//        print("表格高度：\(frame.size.height)")
-//        tableVC.view.frame = frame
-//        tableVC.view.layer.cornerRadius = 10
-//        tableVC.view.layer.masksToBounds = true
-//        tableVC.didMove(toParent: self)
+        //        var frame = view.bounds
+        //        frame.origin.x += 20
+        //        frame.origin.y += 44 + 10
+        //        frame.size.width -= 40
+        //        frame.size.height -= 44 + 20 + 32
+        //        let containerView = UIView(frame: frame)
+        //        containerView.backgroundColor = .lightGray
+        //        containerView.layer.cornerRadius = 10
+        //        containerView.layer.masksToBounds = true
+        //        view.addSubview(containerView)
+        //
+        //        let tableVC = TableViewController()
+        //        addChild(tableVC)
+        //        containerView.addSubview(tableVC.view)
+        //        frame.origin.x = 10
+        //        frame.origin.y = 30
+        //        frame.size.width -= 20
+        //        frame.size.height = tableVC.calculateTableViewHeight(cellWidth: frame.size.width)
+        //        print("表格高度：\(frame.size.height)")
+        //        tableVC.view.frame = frame
+        //        tableVC.view.layer.cornerRadius = 10
+        //        tableVC.view.layer.masksToBounds = true
+        //        tableVC.didMove(toParent: self)
     }
     
     // UITableViewDataSource methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
         let (title, value) = data[indexPath.row]
@@ -152,138 +152,19 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-
+    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
-
-//    // UITableViewDelegate methods
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let (title, value) = data[indexPath.row]
-//        let cellWidth = tableView.bounds.width
-//        return CustomTableViewCell.heightForCell(title: title, value: value, width: cellWidth)
-//    }
+    
+    //    // UITableViewDelegate methods
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        let (title, value) = data[indexPath.row]
+    //        let cellWidth = tableView.bounds.width
+    //        return CustomTableViewCell.heightForCell(title: title, value: value, width: cellWidth)
+    //    }
     
     func showHTMLContent() {
-//        let gridHtml = """
-//        <!DOCTYPE html>
-//        <html lang="en">
-//        <head>
-//            <meta charset="UTF-8">
-//            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//            <title>Sample Table</title>
-//            <style>
-//                .markdown-body table {
-//                  border-spacing: 0;
-//                  border-collapse: separate;
-//                  // width: 100%;
-//                  min-width: 100%;
-//                  // max-width: 100%;
-//                  overflow: auto;
-//                }
-//                .share-table-wrapper,
-//                .share-table-wrapper table {
-//                  width: max-content;
-//                }
-//                .share-table-wrapper table {
-//                  margin-bottom: 0 !important;
-//                  border-collapse: unset !important;
-//                  border-spacing: unset !important;
-//                }
-//                .share-table-wrapper table tr {
-//                  border-top: none !important;
-//                }
-//                .share-table-wrapper table td {
-//                  max-width: 260px !important;
-//                  border: unset !important;
-//                  border-bottom: 0.5px solid #d7d7d7 !important;
-//                  border-right: 0.5px solid #d7d7d7 !important;
-//                }
-//                .share-table-wrapper table th {
-//                  max-width: 260px !important;
-//                  border: unset !important;
-//                  border-top: 0.5px solid #d7d7d7 !important;
-//                  border-bottom: 0.5px solid #d7d7d7 !important;
-//                  border-right: 0.5px solid #d7d7d7 !important;
-//                  text-align: center;
-//                }
-//                .share-table-wrapper table th:first-child {
-//                  border-left: 0.5px solid #d7d7d7 !important;
-//                  border-top-left-radius: 8px;
-//                }
-//                .share-table-wrapper table th:last-child {
-//                  border-top-right-radius: 8px;
-//                }
-//                .share-table-wrapper table tbody tr td:first-child {
-//                  border-left: 0.5px solid #d7d7d7 !important;
-//                }
-//                .share-table-wrapper table tbody tr:last-child td:first-child {
-//                  border-bottom-left-radius: 8px;
-//                }
-//                .share-table-wrapper table tbody tr:last-child td:last-child {
-//                  border-bottom-right-radius: 8px;
-//                }
-//                .share-table-wrapper table sup {
-//                  display: none !important;
-//                }
-//                .default-table table {
-//                  table-layout: fixed;
-//                  margin-bottom: 0 !important;
-//                  border-collapse: unset !important;
-//                  border-spacing: unset !important;
-//                }
-//                .default-table table th {
-//                  max-width: 260px !important;
-//                  border: unset !important;
-//                  border-top: 0.5px solid #d7d7d7 !important;
-//                  border-bottom: 0.5px solid #d7d7d7 !important;
-//                  border-right: 0.5px solid #d7d7d7 !important;
-//                }
-//                .default-table table th:first-child {
-//                  border-left: 0px solid #d7d7d7 !important;
-//                }
-//                .default-table table th:last-child {
-//                  border-right: 0px solid #d7d7d7 !important;
-//                }
-//                .default-table table td {
-//                  max-width: 260px !important;
-//                  border: unset !important;
-//                  border-bottom: 0.5px solid #d7d7d7 !important;
-//                  border-right: 0.5px solid #d7d7d7 !important;
-//                }
-//                .default-table table tbody tr td:first-child {
-//                  border-left: 0px solid #d7d7d7 !important;
-//                }
-//                .default-table table tbody tr:last-child td:first-child {
-//                  border-bottom-left-radius: 8px;
-//                }
-//                .default-table table tbody tr:last-child td:last-child {
-//                  border-bottom-right-radius: 8px;
-//                }
-//                .default-table table tbody tr td:last-child {
-//                  border-right: 0px solid #d7d7d7 !important;
-//                }
-//                .default-table table tbody tr:last-child td {
-//                  border-bottom: 0px solid #d7d7d7 !important;
-//                }
-//                .markdown-body p:has(span[data-state="position-persist-bc"]) {
-//                  display: none;
-//                }
-//                .markdown-body td,
-//                .markdown-body th {
-//                  padding: 0;
-//                }
-//            </style>
-//        </head>
-//        <body>
-//
-//        <h2>Sample Data Table</h2>
-//
-//        <table data-message-id="31364775" data-position-id="5_1_276_12_57_736" id="table_rendered_31364775_5_1_276_12_57_736" style="box-shadow: rgb(215, 215, 215) 0px 0px 0px 0.5px;"><thead><tr><th>食用油种类</th><th>不饱和脂肪酸含量</th><th>抗氧化性</th><th>烟点</th><th>适用烹饪方式</th><th>特点</th></tr></thead><tbody><tr><td><span>花生油</span></td><td><span>高，油酸含量丰富</span></td><td><span>较高</span></td><td><span>较高，适合高温烹饪</span></td><td><span>炒菜、煎炸</span></td><td><span>香味浓郁，耐高温</span></td></tr><tr><td><span>菜籽油</span></td><td><span>高，脂肪酸组成均衡</span></td><td><span>高</span></td><td><span>很高，适合高温烹饪</span></td><td><span>炒菜、煎炸</span></td><td><span>无特殊气味，脂肪酸组成均衡</span></td></tr><tr><td><span>葵花籽油</span></td><td><span>高，亚油酸含量丰富</span></td><td><span>较高</span></td><td><span>中等，适合中温烹饪</span></td><td><span>凉拌、烤食</span></td><td><span>维生素E含量高</span></td></tr><tr><td><span>玉米油</span></td><td><span>高，亚油酸含量丰富</span></td><td><span>较高</span></td><td><span>较高，适合高温烹饪</span></td><td><span>炸食、炒菜</span></td><td><span>维生素E含量高</span></td></tr><tr><td><span>橄榄油</span></td><td><span>高，油酸含量丰富</span></td><td><span>高</span></td><td><span>较低，更适合低温烹饪</span></td><td><span>凉拌、低温烹饪</span></td><td><span>富含单不饱和脂肪酸，口感清淡</span></td></tr><tr><td><span>芝麻油</span></td><td><span>高，油酸含量丰富</span></td><td><span>较高</span></td><td><span>低，更适合低温烹饪</span></td><td><span>凉拌、调味</span></td><td><span>香味浓郁，营养价值高</span></td></tr></tbody></table>
-//
-//        </body>
-//        </html>
-//        """
         let gridHtml = """
                 <!DOCTYPE html>
                 <html lang="en">
@@ -339,6 +220,11 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
                     </tr>
                 </table>
                 
+                <p>
+                      
+                      The somatostatin receptor subtype 2 (SSTR2) is often highly expressed on neuroendocrine tumors (NETs), making it a popular in vivo target for diagnostic and therapeutic approaches aimed toward management of NETs. In this work, an antagonist peptide (sst<sub>2</sub>-ANT) with high affinity for SSTR2 was modified at the N-terminus with a novel [N,S,O] bifunctional chelator (2) designed for tridentate chelation of rhenium(I) and technetium(I) tricarbonyl cores, [Re(CO)<sub>3</sub>]<sup>+</sup> and [<sup>99m</sup>Tc][Tc(CO)<sub>3</sub>]<sup>+</sup>. The chelator-peptide conjugation was performed via a Cu(I)-assisted click reaction of the alkyne-bearing chelator (2) with an azide-functionalized sst<sub>2</sub>-ANT peptide (3), to yield NSO-sst<sub>2</sub>-ANT (4). Two synthetic methods were used to prepare Re-4 at the macroscopic scale, which differed based on the relative timing of the click conjugation to the [Re(CO)<sub>3</sub>]<sup>+</sup> complexation by 2. The resulting products demonstrated the expected molecular mass and nanomolar in vitro SSTR2 affinity (IC<sub>50</sub> values under 30 nM, AR42J cells, [<sup>125</sup>I]iodo-Tyr<sup>11</sup>-somatostatin-14 radioligand standard). However, a difference in their HPLC retention times suggested a difference in metal coordination modes, which was attributed to a competing N-triazole donor ligand formed during click conjugation. Surprisingly, the radiotracer scale reaction of [<sup>99m</sup>Tc][Tc(OH<sub>2</sub>)<sub>3</sub>(CO)<sub>3</sub>]<sup>+</sup> (<sup>99m</sup>Tc; t<sub>½</sub> = 6 h, 141 keV γ) with 4 formed a third product, distinct from the Re analogues, making this one of the unusual cases in which Re and Tc chemistries are not well matched. Nevertheless, the [<sup>99m</sup>Tc]Tc-4 product demonstrated excellent in vitro stability to challenges by cysteine and histidine (≥98% intact through 24 h), along with 75% stability in mouse serum through 4 h. In vivo biodistribution and microSPECT/CT imaging studies performed in AR42J tumor-bearing mice revealed improved clearance of this radiotracer in comparison to a similar [<sup>99m</sup>Tc][Tc(CO)<sub>3</sub>]-labeled sst<sub>2</sub>-ANT derivative previously studied. Yet despite having adequate tumor uptake at 1 h (4.9% ID/g), tumor uptake was not blocked by co-administration of a receptor-saturating dose of SS-14. Aimed toward realignment of the Re and Tc product structures, future efforts should include distancing the alkyne group from the intended donor atoms of the chelator, to reduce the coordination options available to the [M(CO)<sub>3</sub>]<sup>+</sup> core (M = Re, <sup>99m</sup>Tc) by disfavoring involvement of the N-triazole.
+                    </p>
+                
                 </body>
                 </html>
                 """
@@ -355,6 +241,12 @@ final class ViewController: UIViewController, UITableViewDataSource, UITableView
         gridTextView.layer.cornerRadius = 10
         // 使圆角效果生效
         gridTextView.layer.masksToBounds = true
+        guard let readMeURL = Bundle.main.url(forResource: "latex", withExtension: "html"),
+              let readMeContents = try? String(contentsOf: readMeURL)
+        else {
+            showError(message: "Could not load contents.")
+            return
+        }
         if let attributedString = try? NSAttributedString(data: Data(gridHtml.utf8), options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             gridTextView.attributedText = attributedString
         }

@@ -16,6 +16,7 @@
 		14954EA521A7DCB9001933C4 /* README-sample.md in Resources */ = {isa = PBXBuildFile; fileRef = 14954EA421A7DCA3001933C4 /* README-sample.md */; };
 		14954EA621A7DCBA001933C4 /* README-sample.md in Resources */ = {isa = PBXBuildFile; fileRef = 14954EA421A7DCA3001933C4 /* README-sample.md */; };
 		5A6CCF0A2D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CCF092D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift */; };
+		5A6CCF1B2D104DD800EDAFE8 /* latex.html in Resources */ = {isa = PBXBuildFile; fileRef = 5A6CCF1A2D104DD800EDAFE8 /* latex.html */; };
 		5A6E02DC2D0BDD1400429734 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E02DB2D0BDD1400429734 /* TableViewController.swift */; };
 		5A6E02DF2D0BDE9C00429734 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E02DE2D0BDE9C00429734 /* CustomTableViewCell.swift */; };
 		5A7B6BFA2D09BA7C0047771C /* sample3.md in Resources */ = {isa = PBXBuildFile; fileRef = 5A7B6BF52D09BA7C0047771C /* sample3.md */; };
@@ -97,6 +98,7 @@
 		14090A5E2185443800503C06 /* macOS Demo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "macOS Demo.entitlements"; sourceTree = "<group>"; };
 		14954EA421A7DCA3001933C4 /* README-sample.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "README-sample.md"; sourceTree = "<group>"; };
 		5A6CCF092D0FCC5200EDAFE8 /* HomeSwitchPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSwitchPopupView.swift; sourceTree = "<group>"; };
+		5A6CCF1A2D104DD800EDAFE8 /* latex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = latex.html; sourceTree = "<group>"; };
 		5A6E02DB2D0BDD1400429734 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		5A6E02DE2D0BDE9C00429734 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		5A7B6BF52D09BA7C0047771C /* sample3.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = sample3.md; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		8A07D7D11F085EC6004D7141 /* Down-Example */ = {
 			isa = PBXGroup;
 			children = (
+				5A6CCF1A2D104DD800EDAFE8 /* latex.html */,
 				5A7B6BF82D09BA7C0047771C /* sample1.md */,
 				5A7B6BF72D09BA7C0047771C /* sample2.md */,
 				5A7B6BF52D09BA7C0047771C /* sample3.md */,
@@ -344,6 +347,7 @@
 				5A7B6BFA2D09BA7C0047771C /* sample3.md in Resources */,
 				5A7B6BFB2D09BA7C0047771C /* sample2.md in Resources */,
 				5A7B6BFC2D09BA7C0047771C /* sample1.md in Resources */,
+				5A6CCF1B2D104DD800EDAFE8 /* latex.html in Resources */,
 				5A7B6BFD2D09BA7C0047771C /* sample4.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
